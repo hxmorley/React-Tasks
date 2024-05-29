@@ -1,24 +1,26 @@
-import logo from './logo.svg';
+
 import './App.css';
+import ItemCard from './components/items.jsx'
+import itemsData from './itemsData.json'
+import Navbar from "./Pages/NavBar";
+import HomePage from "./Pages/HomePage";
+import ShopPage from "./Pages/ShopPage";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ShopCard from './components/ShopCard.jsx';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <BrowserRouter>
+        <Navbar />
+        <main>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/Shop" element={<ShopPage />} />
+        </Routes>
+        </main>
+      </BrowserRouter>
+      </div>
   );
 }
 
